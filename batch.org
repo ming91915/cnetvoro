@@ -1,0 +1,14 @@
+#+BEGIN_SRC python :results output
+import networkx as nx
+import numpy as np
+BA = nx.random_graphs.barabasi_albert_graph(20, 1)
+# spring layout
+pos = nx.spring_layout(BA).values()
+
+np.savetxt("cx_nodes.csv",pos,fmt='%.2f',delimiter=',',header='x,y',comments="")
+np.savetxt("cx_edges.csv",BA.edges(),fmt='%d',delimiter=',',header='e1,e2',comments="")
+print "done."
+#+END_SRC
+
+#+RESULTS:
+: done.
